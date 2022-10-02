@@ -19,8 +19,8 @@ func TestDoSum(t *testing.T) {
 		args args
 		want int
 	}{
-		{name: "basic_test", args: args{upper_bound: 10}, want: 23},
-		{name: "basic_test", args: args{upper_bound: 1000}, want: 233168},
+		{name: "sanity check", args: args{upper_bound: 10}, want: 23},
+		{name: "answer", args: args{upper_bound: 1000}, want: 233168},
 		// TODO: Add test cases.
 	}
 	for _, tt := range tests {
