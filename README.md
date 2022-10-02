@@ -1,2 +1,3 @@
 # projecteuler
- solutions to projecteuler.net problems in various languages
+ 
+Solutions to https://projecteuler.net problems in various languages.
