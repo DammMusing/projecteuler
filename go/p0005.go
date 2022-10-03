@@ -18,11 +18,8 @@ func divisible_by_range(number, limit int) bool {
 }
 
 func SmallestMultiple(limit int) int {
-	candidate := 2000
-	for ; ; candidate++ {
-		if divisible_by_range(candidate, limit) {
-			break
-		}
+	candidate := limit
+	for ; !divisible_by_range(candidate, limit); candidate++ {
 	}
 	return candidate
 }
