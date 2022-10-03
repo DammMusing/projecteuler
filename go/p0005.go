@@ -19,7 +19,8 @@ func divisible_by_range(number, limit int) bool {
 
 func SmallestMultiple(limit int) int {
 	candidate := limit
-	for ; !divisible_by_range(candidate, limit); candidate++ {
+	for !divisible_by_range(candidate, limit) {
+		candidate++
 	}
 	return candidate
 }
