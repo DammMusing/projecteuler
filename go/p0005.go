@@ -19,9 +19,9 @@ func divisible_by_range(number, limit int) bool {
 
 func SmallestMultiple(limit int) int {
 	candidate := 2000
-	for found := false; !found; candidate++ {
+	for ; ; candidate++ {
 		if divisible_by_range(candidate, limit) {
-			found = true
+			break
 		}
 	}
 	return candidate
