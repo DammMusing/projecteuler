@@ -17,7 +17,7 @@ func GatherPrimesLessThan(limit uint64, primes chan uint64) {
 			primes <- i // Send the prime along the channel...
 			for multiple := i * 2; multiple <= limit; multiple += i {
 				// ...and clear all the multiples from the sieve
-				sieve.Set(i, false)
+				sieve.Set(multiple, false)
 			}
 		}
 	}
