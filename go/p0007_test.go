@@ -18,7 +18,7 @@ func TestNthPrime(t *testing.T) {
 		want uint64
 	}{
 		{name: "simple", args: args{n: 6}, want: 13},
-		{name: "simple", args: args{n: 10001}, want: 104743},
+		{name: "answer", args: args{n: 10001}, want: 104743},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
