@@ -28,6 +28,9 @@ func GatherPrimesLessThan(limit uint64, primes chan uint64) {
 
 /** A bitmap datatype for representing the Sieve of Eratosthenes. */
 type Sieve struct {
+	// TODO: this could be made much more efficient by eliding 4 of 6 bits,
+	// implicitly avoiding all products of 2 and of 3.  Currently it represents
+	// all natural numbers, even zero and one.
 	bits []byte
 }
 
@@ -57,4 +60,16 @@ func (s *Sieve) Get(index uint64) bool {
 	}
 	pos, bit := index>>3, byte(1<<(index&0x07))
 	return s.bits[pos]&bit != 0
+}
+
+func NumFactorsOf(n uint64) int {
+	num_factors := 0
+
+	for x := uint64(1); x < n; x++ {
+		if n%x == 0 {
+			num_factors += 1
+		}
+	}
+
+	return num_factors
 }
