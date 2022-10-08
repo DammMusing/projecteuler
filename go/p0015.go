@@ -39,10 +39,12 @@ import "math/big"
 // .   .   .   .   .
 // 1 . 5 . 15. 35. 70
 //
-// The answer is then the same as asking what the middle of the (n + n)th
-// row, or the coefficient for (a + b)^n when a and b are raised to n/2.
+// The answer is then the same as asking what the middle of the (n + n + 1)th
+// row, or the coefficient for (a + b)^2n when a and b are raised to n.
 // e.g. the 6 comes from 6(a^2)(b^2) in (a + b)^4.
-// The closed form for this is (n Choose n/2) or (n! / k!)
+//
+// The closed form for this is (n Choose n/2) or n! / k! (n-k)! but we can also
+// use the big-int Binomial method from golang's standard library.
 func CountRoutesTopLeftToBottomRight(size int64) string {
 	result := new(big.Int)
 	result.Binomial(size*2, size)
