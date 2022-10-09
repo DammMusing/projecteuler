@@ -1,4 +1,4 @@
-package utils
+package main
 
 /**
  * Send all the prime values that exist below `limit` through the provided channel.

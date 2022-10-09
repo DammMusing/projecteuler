@@ -12,10 +12,6 @@ Find the sum of all the positive integers which cannot be written as the sum of 
 
 package main
 
-import (
-	"github.com/DammMusing/projecteuler/utils"
-)
-
 func SumOfNonAbundantSums(limit int) uint64 {
 	// Build the sum of divisors mapping from the bottom up.
 	sum_divisors := make([]int, limit)
@@ -37,7 +33,7 @@ func SumOfNonAbundantSums(limit int) uint64 {
 
 	// Now it's somewhat convenient that we didn't bake any primality logic into the sieve
 	// ... but perhaps this and that deserve to be different types (Eratosthenes vs Bitmap).
-	sieve := utils.NewSieve(uint64(limit))
+	sieve := NewSieve(uint64(limit))
 	for i := 0; i < len(abundants); i++ {
 		for j := i; j < len(abundants); j++ {
 			sum := abundants[i] + abundants[j]

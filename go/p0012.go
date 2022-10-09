@@ -19,10 +19,6 @@ What is the value of the first triangle number to have over five hundred divisor
 
 package main
 
-import (
-	"github.com/DammMusing/projecteuler/utils"
-)
-
 // Brute-force this takes some time but still O(minutes).  A more efficient
 // solution would generate the factors from the bottom up instead of finding
 // factors (linear time) while iterating in the domain (making it quadratic).
@@ -31,7 +27,7 @@ func FirstTriangleNumberOfManyFactors(min_num_divisors int) uint64 {
 	triangle, sequence := uint64(1), uint64(2)
 	for num_factors := 1; num_factors < min_num_divisors; sequence++ {
 		triangle += sequence
-		num_factors = utils.NumFactorsOf(triangle)
+		num_factors = NumFactorsOf(triangle)
 	}
 
 	return triangle
