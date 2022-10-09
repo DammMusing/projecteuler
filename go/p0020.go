@@ -15,14 +15,14 @@ import "math/big"
 
 func SumOfDigitsFromFactorial(n int64) int {
 	sum_digits := 0
-	digits := factorial(n).Text(10)
+	digits := big_factorial(n).Text(10)
 	for _, v := range digits {
 		sum_digits += int(v - '0')
 	}
 	return sum_digits
 }
 
-func factorial(n int64) *big.Int {
+func big_factorial(n int64) *big.Int {
 	if n <= 1 {
 		return big.NewInt(1)
 	}
