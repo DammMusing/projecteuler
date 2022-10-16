@@ -10,10 +10,7 @@ How many circular primes are there below one million?
 
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "math"
 
 func CountCircularPrimesBelow(limit int) int {
 	count := 0
@@ -22,10 +19,8 @@ func CountCircularPrimesBelow(limit int) int {
 	prime_chan := make(chan uint64)
 	go GatherPrimesLessThan(uint64(limit), prime_chan)
 	for p := <-prime_chan; p != 0; p = <-prime_chan {
-		fmt.Printf("prime %d\n", p)
 		primes[int(p)] = true
 	}
-	fmt.Println("Gathered primes, checking for cycles.")
 
 	prime_chan = make(chan uint64)
 	go GatherPrimesLessThan(uint64(limit), prime_chan)
@@ -38,14 +33,11 @@ func CountCircularPrimesBelow(limit int) int {
 			}
 		}
 		if circular {
-			fmt.Printf("Found cycle (%d), working rotation: ", p)
 			for _, v := range rotations {
 				// Reset all primes in the ring so we don't revisit them later
 				primes[v] = false
 				count += 1
-				fmt.Printf("%d ", v)
 			}
-			fmt.Printf("\n")
 		}
 	}
 

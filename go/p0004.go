@@ -8,10 +8,7 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "strconv"
 
 func is_palindrome(number int) bool {
 	digits := strconv.Itoa(number)
@@ -31,7 +28,6 @@ func LargestPalindromeProduct(multiplicand_limit int) int {
 			multiple := i * j
 			if is_palindrome(multiple) && multiple > largest {
 				largest = multiple
-				fmt.Printf("%v from %v * %v\n", multiple, i, j)
 			}
 		}
 	}

@@ -15,10 +15,7 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 
 package main
 
-import (
-	"fmt"
-	"strconv"
-)
+import "strconv"
 
 // I thought I might have to build a map of the totally-ordered digits
 // to cut some corners in the search space, but a brute force approach
@@ -40,7 +37,6 @@ func SumOfDigitPowersWithExponent(exp int) int {
 		for _, digit := range digits {
 			sum += powers[int(digit-'0')]
 		}
-		fmt.Printf("\n")
 		if sum == n {
 			total += sum
 		}

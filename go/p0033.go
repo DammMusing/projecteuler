@@ -12,8 +12,6 @@ If the product of these four fractions is given in its lowest common terms, find
 
 package main
 
-import "fmt"
-
 func LowestCommonDenominatorOfDigitCancellingFractions() int {
 	nums, dens := make([]int, 0), make([]int, 0)
 
@@ -31,7 +29,6 @@ func LowestCommonDenominatorOfDigitCancellingFractions() int {
 						before := float32(num) / float32(den)
 						after := float32(num2) / float32(den1)
 						if before == after {
-							fmt.Printf("%d / %d == %d / %d\n", num, den, num2, den1)
 							nums = append(nums, num2)
 							dens = append(dens, den1)
 						}
@@ -40,7 +37,6 @@ func LowestCommonDenominatorOfDigitCancellingFractions() int {
 						before := float32(num) / float32(den)
 						after := float32(num1) / float32(den2)
 						if before == after {
-							fmt.Printf("%d / %d == %d / %d\n", num, den, num1, den2)
 							nums = append(nums, num1)
 							dens = append(dens, den2)
 						}
