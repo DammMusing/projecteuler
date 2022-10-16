@@ -10,20 +10,18 @@ For which value of p ≤ 1000, is the number of solutions maximised?
 
 package main
 
-import "math"
-
 func MostNumerousIntegerRightTrianglePerimeter(limit int) int {
-	squares := make(map[int]bool)
+	squares := make(map[int]int)
 	for i := 2; i < limit; i++ {
-		squares[i*i] = true
+		squares[i*i] = i
 	}
 
 	perimeter_counts := make(map[int]int)
 	for a := 2; a < limit; a++ {
 		for b := a + 1; b < limit; b++ {
 			c2 := a*a + b*b
-			if squares[c2] {
-				c := int(math.Round(math.Sqrt(float64(c2))))
+			c := squares[c2]
+			if c > 0 {
 				perimeter_counts[a+b+c] += 1
 			}
 		}
