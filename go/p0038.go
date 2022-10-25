@@ -55,12 +55,10 @@ func round_pow10(value int) int {
 }
 
 func is_pandigital_int(value int) bool {
-	if value < 100000000 || value >= 1000000000 {
-		// Must be a nine-digit number
-		return false
-	}
+	num_digits := 0
 	digits := make(map[int]bool)
 	for value > 0 {
+		num_digits += 1
 		digit := value % 10
 		if digit == 0 || digits[digit] {
 			// disallow zeroes and any second occurrence of a digit
@@ -69,5 +67,10 @@ func is_pandigital_int(value int) bool {
 		digits[digit] = true
 		value /= 10
 	}
-	return len(digits) == 9
+	for i := 1; i <= num_digits; i++ {
+		if !digits[i] {
+			return false
+		}
+	}
+	return true
 }
