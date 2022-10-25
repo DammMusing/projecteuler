@@ -19,7 +19,9 @@ import (
 func TotalNamesScores() int {
 	total := 0
 	filedata, err := os.ReadFile("../data/p022_names.txt")
-	check(err)
+	if err != nil {
+		panic(err)
+	}
 
 	names := strings.Split(string(filedata), `","`)
 	// trim initial and trailing quotes
@@ -34,12 +36,6 @@ func TotalNamesScores() int {
 	}
 
 	return total
-}
-
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
 }
 
 func name_score(position int, name string) int {
