@@ -30,7 +30,7 @@ func FirstCompositeNotAPrimePlusDoubleSquare(limit int) int {
 	go GatherOddComposites(limit, primes, odd_composites)
 
 	for number := <-odd_composites; number != 0; number = <-odd_composites {
-		if evidence[number] == false {
+		if !evidence[number] {
 			return number
 		}
 	}
